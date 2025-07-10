@@ -6,7 +6,7 @@ from pyrogram.types import Message, User
 # ========== CONFIG ==========
 API_ID = 21189715  # Your API ID
 API_HASH = "988a9111105fd2f0c5e21c2c2449edfd"  # Your API Hash
-SESSION_STRING = "BQGuP2cATolbNp6x2VJbRV69OjUfn6..."  # Your full Pyrogram string session
+SESSION_STRING = "BQGuP2cATolbNp6x2VJbRV69OjUfn6GaHjFLodJaVbRkRG06R1bUD8nYbVomZq8Cq-QPAF_sKRqqlxrzj5YLfbQC4w0ysGTvaHTwTsuWx24M4BzJNTNpIQ1lWtvFlD9mOG1YI8B-YN_P2FdCW6pUFAjA34JWJhKoKZWLbUCrk16401n4DqswpeE_XcR8of_xxCoIZAccEIU7ugiYketKyOfFfNft1qhFcN0p-1egH-9vvJvhBZQ4qBxArGz3Bz7BPUiqs-ZaWYO4zeEXDx2CIMpt6_PIb3DRXvCDlxUvATjsTBEjOSJWKVe9cMXwMGRZGdoIZZJA4SvmXdhbDDuZQavbDrkg7QAAAAFGEz7IAA"  # Your full Pyrogram string session
 SUDO_ID = 8111174619  # Your Telegram User ID
 
 # ========== MESSAGES ==========
