@@ -35,14 +35,20 @@ app = Client("userbot", session_string=SESSION_STRING, api_id=API_ID, api_hash=A
 active_tags = {}
 
 # ========== START TAGGING ==========
-@app.on_message(filters.command("starttag") & filters.group)
+@app.on_message(filters.command("tagall") & filters.group)
 async def start_tagging(client: Client, message: Message):
+    print("⏩ Received /starttag command")
+
     if message.from_user.id != SUDO_ID:
-        return await message.reply("❌ You are not authorized.")
+        await message.reply("❌ You are not authorized.")
+        return
+
+    print("✅ Authorized user, proceeding...")
 
     chat_id = message.chat.id
     if active_tags.get(chat_id):
-        return await message.reply("⚠️ Tagging is already running.")
+        await message.reply("⚠️ Tagging is already running.")
+        return
 
     active_tags[chat_id] = True
     await message.reply("🚀 Starting tagging...")
@@ -56,16 +62,17 @@ async def start_tagging(client: Client, message: Message):
             continue
 
         mention = (
-            f"@{user.username}"
-            if user.username
+            f"@{user.username}" if user.username
             else f"<a href='tg://user?id={user.id}'>{user.first_name or 'User'}</a>"
         )
+
         text = f"{random.choice(casual_messages)}\n{mention}"
 
         try:
             await client.send_message(chat_id, text, parse_mode="html")
+            print(f"✅ Tagged: {mention}")
         except Exception as e:
-            print(f"[ERROR] Failed to tag: {e}")
+            print(f"❌ Failed to tag {mention}: {e}")
 
         await asyncio.sleep(5)
 
